@@ -98,14 +98,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://3.25.224.115:9980/mithuntechnologies/repository/wallmart-releases/</url>
+	      <name>Jeevan_Releases Repository</name>
+	      <url>http://3.143.5.109:8081/repository/Jeevan_Releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://3.25.224.115:9980/mithuntechnologies/repository/wallmart-snapshot/</url>
+	      <name>Jeevan_Snapshot Repository </name>
+	      <url>http://3.143.5.109:8081/repository/jeevan_Snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
