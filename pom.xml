@@ -99,13 +99,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Jeevan_Releases Repository</name>
-	      <url>http://18.116.38.165:8081/repository/Jeevan_Releases/</url>
+	      <url>http://18.219.31.121:8081/repository/Jeevan_Releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Jeevan_Snapshot Repository </name>
-	      <url>http://18.116.38.165:8081/repository/jeevan_Snapshot/</url>
+	      <url>http://18.219.31.121:8081/repository/jeevan_Snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
