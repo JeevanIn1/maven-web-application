@@ -9,10 +9,12 @@ git branch: 'development', credentialsId: '9b1271a5-cd9e-46c4-b553-be66a94c2341'
  {
   sh "${mavenhome}/bin/mvn clean package"
  }
+ /*
  stage('Upload Artifacts in Repository Nexus')
  {
      sh "${mavenhome}/bin/mvn clean deploy"
  }
+ */
  stage ('sending Email Notifications')
  {
      mail bcc: '', body: '''Here it it is first Job
