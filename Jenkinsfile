@@ -1,7 +1,9 @@
 node
 {
 def mavenhome = tool name: "maven3.6.2"
- timestamps
+timestamps {
+    // some block
+}
 stage('Checkout code')   
 {  
 git branch: 'development', credentialsId: '9b1271a5-cd9e-46c4-b553-be66a94c2341', url: 'https://github.com/JeevanIn1/maven-web-application.git'  
