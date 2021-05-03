@@ -102,8 +102,8 @@
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Jeevan_Snapshot Repository </name>
-	      <url>http://3.142.42.223:8081/repository/Jeevan_Snapshot/</url>
+	      <name>maven-snapshots Repository </name>
+	      <url>http://3.142.42.223:8081/repository/maven-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
