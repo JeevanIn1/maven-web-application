@@ -1,29 +1,53 @@
-node
-{
-def mavenhome = tool name: "maven3.6.2"
-timestamps {
-    // some block
-}
-stage('Checkout code')   
-{  
-git branch: 'development', credentialsId: '9b1271a5-cd9e-46c4-b553-be66a94c2341', url: 'https://github.com/JeevanIn1/maven-web-application.git'  
- }
- stage('build') 
+node ('master')
  {
-  sh "${mavenhome}/bin/mvn clean package"
+  
+  def mavenHome = tool name: "maven3.6.3"
+  
+      echo "GitHub BranhName ${env.BRANCH_NAME}"
+      echo "Jenkins Job Number ${env.BUILD_NUMBER}"
+      echo "Jenkins Node Name ${env.NODE_NAME}"
+  
+      echo "Jenkins Home ${env.JENKINS_HOME}"
+      echo "Jenkins URL ${env.JENKINS_URL}"
+      echo "JOB Name ${env.JOB_NAME}"
+  
+   //properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2')), pipelineTriggers([pollSCM('* * * * *')])])
+  
+  stage("CheckOutCodeGit")
+  {
+   git branch: 'master', credentialsId: '65fb834f-a83b-4fe7-8e11-686245c47a65', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
+ }
+ 
+ stage("Build")
+ {
+ sh "${mavenHome}/bin/mvn clean package"
+ }
+ 
+  /*
+ stage("ExecuteSonarQubeReport")
+ {
+ sh "${mavenHome}/bin/mvn sonar:sonar"
  }
  /*
- stage('Upload Artifacts in Repository Nexus')
+ stage("UploadArtifactsintoNexus")
  {
-     sh "${mavenhome}/bin/mvn clean deploy"
+ sh "${mavenHome}/bin/mvn deploy"
  }
  */
- stage ('sending Email Notifications')
+  stage("DeployAppTomcat")
  {
-     mail bcc: '', body: '''Here it it is first Job
-
-With Regards 
-Jeevan''', cc: 'avinashreddyd166@gmail.com', from: '', replyTo: '', subject: 'Job Mail', to: 'jeevanpvrpl@gmail.com'
+  sshagent(['423b5b58-c0a3-42aa-af6e-f0affe1bad0c']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@15.206.91.239:/opt/apache-tomcat-9.0.34/webapps/" 
+  }
  }
-}  
-    
+ 
+ stage('EmailNotification')
+ {
+ mail bcc: 'devopstrainingblr@gmail.com', body: '''Build is over
+ Thanks,
+ Mithun Technologies,
+ 9980923226.''', cc: 'devopstrainingblr@gmail.com', from: '', replyTo: '', subject: 'Build is over!!', to: 'devopstrainingblr@gmail.com'
+ }
+ */
+ 
+ }
