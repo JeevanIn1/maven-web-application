@@ -96,14 +96,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>Jeevan_Releases Repository</name>
-	      <url>http://3.142.42.223:8081/repository/Jeevan_Releases/</url>
+	      <name>Jjeevanreleases Repository</name>
+	      <url>http://13.234.67.38:8081/repository/jeevanreleases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>maven-snapshots Repository </name>
-	      <url>http://3.142.42.223:8081/repository/maven-snapshots/</url>
+	      <name>jeevansnapshot Repository </name>
+	      <url>http://13.234.67.38:8081/repository/jeevansnapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
