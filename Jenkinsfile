@@ -16,7 +16,7 @@ node ('master')
   stage("CheckOutCodeGit")
   {
   git credentialsId: 'jd', url: 'https://github.com/JeevanIn1/maven-web-application.git'
- 
+  }
  stage("Build")
  {
  sh "${mavenHome}/bin/mvn clean package"
